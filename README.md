@@ -261,8 +261,38 @@ const apiUrl = 'https://localhost:5000/properties';
 
 -  Se corrigieron errores de CORS y contenido mixto (Mixed Content) asegurando que tanto el frontend como el backend operen bajo HTTPS.
 
+---------------
+
+## Autenticación 
+### Con almacenamiento segurode contraseñas mediante hashing.
 
 
+Este proyecto utiliza un sistema de **autenticación de usuarios** con almacenamiento seguro de contraseñas utilizando **hashing criptográfico**. Las contraseñas de los usuarios nunca se almacenan en texto plano, sino que se transforman en un valor irreversible utilizando algoritmos de hashing.
+
+### Funcionamiento
+
+#### 1. **Registro de Usuario**
+Cuando un usuario se registra, la contraseña ingresada pasa por un algoritmo de hashing (en este caso, **BCrypt**). El resultado de este proceso es una cadena de texto única que se almacena en la base de datos.
+
+#### 2. **Inicio de Sesión**
+Al intentar iniciar sesión, la contraseña ingresada por el usuario se pasa nuevamente por el algoritmo de hashing. El valor resultante se compara con el valor almacenado en la base de datos. Si ambos coinciden, las credenciales son consideradas correctas y el acceso es otorgado.
+
+<p align="center">
+  <img src="./images/lab06/loginya.png" alt="CertificadoSSL" width="400px">
+</p>
+
+#### 3. **Uso de BCrypt**
+Se utiliza el algoritmo **BCrypt** para el hashing de contraseñas debido a su alta seguridad frente a ataques de **fuerza bruta**. Además, BCrypt genera un **salto aleatorio** (salt) que asegura que incluso si dos usuarios tienen la misma contraseña, sus valores hasheados serán diferentes.
+
+### Beneficios
+- **Seguridad**: Almacenamiento seguro de contraseñas mediante hashing, evitando que las contraseñas se expongan.
+- **Resistencia a ataques**: La utilización de BCrypt dificulta significativamente los ataques de fuerza bruta.
+- **Privacidad**: El valor almacenado en la base de datos nunca puede ser revertido a la contraseña original.
+
+
+
+
+-------------------
 ## 🚀 Despliegue en AWS
 
 Para el despliegue en AWS, se siguen los siguientes pasos:

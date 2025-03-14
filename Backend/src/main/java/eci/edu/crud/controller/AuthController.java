@@ -42,7 +42,6 @@ public class AuthController {
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(400).body(e.getMessage());
         }
-
     }
 
     @PostMapping("/logout")

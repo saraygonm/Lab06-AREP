@@ -14,18 +14,14 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-@ComponentScan(basePackages = "eci.edu.crud") //escanea todos los paquetes
-//@EnableJpaRepositories("eci.edu.crud.property")
 @SpringBootApplication
-@EnableJpaRepositories(basePackages = "eci.edu.crud.property")
-@EntityScan(basePackages = "eci.edu.crud.property")
+@EnableJpaRepositories(basePackages = "eci.edu.crud")  // Asegúrate de que esto esté configurado
+@ComponentScan(basePackages = "eci.edu.crud")  // Asegúrate de que esto esté configurado
+@EntityScan(basePackages = "eci.edu.crud")
 public class ControllerApp {
     private static final Logger log = LoggerFactory.getLogger(ControllerApp.class);
-
     public static void main(String[] args) {
         SpringApplication.run(ControllerApp.class, args);
-        //System.out.println("🔒 Servidor corriendo en HTTPS: https://localhost:8443");
-
     }
 
     @Bean

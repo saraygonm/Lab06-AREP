@@ -19,7 +19,7 @@ public class UserService {
         User user = new User();
         user.setUsername(username);
         user.setPassword(hashedPassword);
-        return userRepository.save(user);
+        return userRepository.save(user);  // Guardar el usuario en la base de datos
     }
 
     public Optional<User> loginUser(String username, String rawPassword) {
