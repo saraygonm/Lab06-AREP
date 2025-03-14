@@ -4,6 +4,8 @@
 *.db
 *.p12
 .env
+.idea/
+
 application.properties
 application.yml
 
